@@ -14,6 +14,11 @@ echo "" >.gitignore
 git remote add origin https://github.com/Ashutosh9110/Coursera-app.git
 git push
 
+how to push an existing code:
+git add .
+git commit - m "Step 4..."
+git push
+
 to fix the error "LF will be replaced by CRLF:"
 git config --global core.autocrlf false
 

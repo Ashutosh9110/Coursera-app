@@ -23,7 +23,7 @@ userRouter.post("/signup", function (req, res) {
     })
 
 
-module.exports({
+module.exports = ({
     userRouter : userRouter
 })
 
