@@ -7,6 +7,12 @@ npm i express mongoose jsonwebtoken
 git add .
 git cgi
 vi .gitignore
+
+how to add .gitignore file:
+echo "" >.gitignore
+
+
+to fix the error "LF will be replaced by CRLF:"
 git config --global core.autocrlf false
 
 
