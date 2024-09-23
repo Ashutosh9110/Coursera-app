@@ -4,13 +4,15 @@ const mongoose = require("mongoose")
 // const { createCourseRoutes } = require("./routes/course");
 const { userRouter } = require("./routes/user");
 const { courseRouter } = require("./routes/course");
+const { adminRouter } = require("./routes/admin")
 // const jwt = require("jsonwebtoken")
 const app = express();
 const port = 3000;
 
 
-app.use("/user", userRouter); // all the routes that start with /user are getting handled by userRouter ..
-app.use("/course", courseRouter);
+app.use("/api/v1/user", userRouter); // all the routes that start with /user are getting handled by userRouter ..
+app.use("/api/v1/course", courseRouter);
+app.use("/api/v1/admin", adminRouter);
 
 // above way is more clearer way of writing the code than the below one. The benefit of above aproach is that most backend are written in this format only
 
