@@ -5,12 +5,14 @@ index.js: Entry point file
 npm i express mongoose jsonwebtoken
 
 git add .
-git cgi
-vi .gitignore
+.gitignore
 
 how to add .gitignore file:
 echo "" >.gitignore
 
+
+git remote add origin https://github.com/Ashutosh9110/Coursera-app.git
+git push
 
 to fix the error "LF will be replaced by CRLF:"
 git config --global core.autocrlf false
