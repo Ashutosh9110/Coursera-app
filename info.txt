@@ -1,0 +1,13 @@
+
+npm inti -y || To initialize package.json
+index.js: Entry point file
+
+npm i express mongoose jsonwebtoken
+
+git add .
+git cgi
+vi .gitignore
+git config --global core.autocrlf false
+
+
+git push origin HEAD
