@@ -7,6 +7,8 @@ const { courseRouter } = require("./routes/course");
 const { adminRouter } = require("./routes/admin")
 // const jwt = require("jsonwebtoken")
 const app = express();
+app.use(express.json()); // this middleware is needed whenever the user want to send a request with json data..
+// whenever user is sending a request with some data and if we want to parse that body, that will only happen if we have the express.json middleware.
 const port = 3000;
 
 

@@ -8,14 +8,14 @@ const userSchema = new Schema({
     email : { type: String, unique: true },
     password : String,
     firstName : String,
-    lastNamse : String,
+    lastName : String,
 });
 
 const adminSchema = new Schema({
     email : { type: String, unique: true },
     password : String,
     firstName : String,
-    lastNamse : String,
+    lastName : String,
 })
 
 // courseSchema will have a reference: "creatorId field"..to the adminSchema..
