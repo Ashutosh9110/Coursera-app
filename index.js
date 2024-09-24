@@ -23,4 +23,16 @@ app.use("/api/v1/admin", adminRouter);
 // createCourseRoutes(app);
 
 
-app.listen(port, () => {console.log(`Server running at PORT: ${port}`)})
+// before we are connecting via app.listen..we should await mongoose.connect and only once connection is bridged, we should
+// start to listen at 3000.
+
+async function main(){
+
+    await mongoose.connect("mongodb+srv://venividivici:weDrGVvFIUh1ZsE0@cluster0.e1dex.mongodb.net/coursera-app")   
+    app.listen(port, () => {console.log(`Server running at PORT: ${port}`)})
+    console.log("Listening on port 3000")
+}
+
+main() // calling the main function
+
+//

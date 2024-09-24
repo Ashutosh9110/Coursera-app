@@ -12,18 +12,18 @@ adminRouter.post("/signin", function (req, res) {
     res.json({ msg : "signup endpoint"})
 })
 
-// adminRouter.use(adminMiddleware); // this admin middleware will make sure that the user is logged in. It will give rights only to the admin to make changes onto the website viz creating/changing courses.
+// adminRouter.use(adminMiddleware); // this admin middleware will make sure that the user is logged in. It will give rights only to the admin to make changes onto the website viz creating/changing s.
 
-adminRouter.post("/course", function (req, res) {
+adminRouter.post("/", function (req, res) {
+    res.json({ msg : "signup endpoint"})
+})
+// we are putting just / here so that any time any request comes to /api/v1/course/.."/" swit will handle it
+
+adminRouter.put("/", function (req, res) { // to make changes in the  structure (put request)
     res.json({ msg : "signup endpoint"})
 })
 
-
-adminRouter.put("/course", function (req, res) { // to make changes in the course structure (put request)
-    res.json({ msg : "signup endpoint"})
-})
-
-adminRouter.get("/course/bulk", function (req, res) { // to see all the course under one hood
+adminRouter.get("/bulk", function (req, res) { // to see all the  under one hood
     res.json({ msg : "signup endpoint"})
 })
 

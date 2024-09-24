@@ -24,3 +24,10 @@ git config --global core.autocrlf false
 
 
 git push origin HEAD
+
+ip address to add in mongoDb is 0.0.0.0/0
+which can be accessed by anyone from anywhere
+
+npm run start :- when we want to start our application in production, when don't want nodemon to keep a watch on all the files
+
+npm run dev :- when running the application in dev mode (developing the application locally)..which will run nodemon index.js which will watch all the files and if we change any of the files, the backend server will restart.

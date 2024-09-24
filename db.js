@@ -18,6 +18,8 @@ const adminSchema = new Schema({
     lastNamse : String,
 })
 
+// courseSchema will have a reference: "creatorId field"..to the adminSchema..
+// only an admin that has a creator id can create a course in courseSchema
 const courseSchema = new Schema({
     title : String,
     description : String,
@@ -33,7 +35,7 @@ const purchaseSchema = new Schema({
 });
 
 const userModel = mongoose.model("user", userSchema)
-const adminModel = mongoose.model("admin", adminSchema)
+const adminModel = mongoose.model("admin", adminSchema      )
 const purchaseModel = mongoose.model("purchase", courseSchema)
 const courseModel = mongoose.model("course", purchaseSchema)
 

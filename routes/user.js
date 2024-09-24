@@ -10,7 +10,7 @@ const Router =  require("express");
 const userRouter = Router();
 // if a request comes on /users or on anything, it gets routed to userRouter. userRouter() is a place that handles incoming requests.
 
-userRouter.post("/signup", function (req, res) {
+    userRouter.post("/signup", function (req, res) {
         res.json({ msg : "Signup endpoint" })
     })
 
