@@ -42,6 +42,9 @@ adminRouter.post("/course", adminMiddleware, async function (req, res) { // the 
 // middleware
     const adminId = req.userId // the adminmiddleware will make sure that the admin is logged in and the control will reach
 // here and we can say adminID = req.userId
+
+// we have created the above userId in admin middleware
+
     const { titel, description, price, imageUrl, createrId } = req.body; // these are the five things we expect admin to give us
 
 // TODO: build a pipeline to upload images: from: Youtube video - creating a web3 saas in 6 hours

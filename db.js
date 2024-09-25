@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
-console.log("connected to MongoDb")
 const ObjectId = mongoose.Types.ObjectId;
 
-mongoose.connect("")
 const Schema = mongoose.Schema;
 const userSchema = new Schema({
     email : { type: String, unique: true },

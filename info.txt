@@ -3,6 +3,9 @@ npm inti -y || To initialize package.json
 index.js: Entry point file
 
 npm i express mongoose jsonwebtoken
+npm i nodemon
+npm i dotenv
+
 
 git add .
 .gitignore
@@ -31,3 +34,11 @@ which can be accessed by anyone from anywhere
 npm run start :- when we want to start our application in production, when don't want nodemon to keep a watch on all the files
 
 npm run dev :- when running the application in dev mode (developing the application locally)..which will run nodemon index.js which will watch all the files and if we change any of the files, the backend server will restart.
+
+
+.env file: it is file where we put all the secrets of our project (passwords, keys)
+along with .env file, we also create .env.example file so that whosoever is setting the project in future, they can clearly see, how the our env file looks like.. and they can put their own secrets (passwords, keys)
+How do we do that?
+install npm i dotenv
+put require("dotenv").config() at the top of index file
+add all the keys to .env file and replace the keys with process.env.variablename

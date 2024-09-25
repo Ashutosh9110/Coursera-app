@@ -2,8 +2,8 @@
 
 // Always try to avoid a circular dependency, they are very hard to debug..we have made this separte file just for that.
 
-const JWT_USER_PASSWORD = "asdasd123";
-const JWT_ADMIN_PASSWORD = "adminadmin"
+const JWT_USER_PASSWORD = process.env.JWT_USER_PASSWORD;
+const JWT_ADMIN_PASSWORD = process.env.JWT_ADMIN_PASSWORD;
 
 
 
