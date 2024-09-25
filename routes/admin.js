@@ -30,7 +30,7 @@ adminRouter.post("/signin", async function (req, res) {
         const token = jwt.sign({
             id : admin._id
         }, JWT_ADMIN_PASSWORD)
-        res.json({ tokken : token })
+        res.json({ token : token })
     } else{
         res.status(403).json({ msg : "Incorrect Credentials" })
     }
@@ -45,7 +45,7 @@ adminRouter.post("/course", adminMiddleware, async function (req, res) { // the 
 
 // we have created the above userId in admin middleware
 
-    const { titel, description, price, imageUrl, createrId } = req.body; // these are the five things we expect admin to give us
+    const { title, description, price, imageUrl } = req.body; // these are the five things we expect admin to give us
 
 // TODO: build a pipeline to upload images: from: Youtube video - creating a web3 saas in 6 hours
 // so that user is able to upload in image and not give a image url
@@ -54,29 +54,29 @@ adminRouter.post("/course", adminMiddleware, async function (req, res) { // the 
         description : description,
         price : price,
         imageUrl : imageUrl,
-        createrId : adminId
+        creatorId : adminId
     })
 
     res.json({ msg : "Course created", courseId : course._id})
 })
-// we are putting just / here so that any time any request comes to /api/v1/course/.."/" swit will handle it
+// we are putting just / here so that any time any request comes to /api/v1/course/.."/" it will handle it
 
 adminRouter.put("/course", adminMiddleware, async function (req, res) {
     const adminId = req.userId
-    const { titel, description, price, imageUrl, courseId } = req.body;
+    const { title, description, imageUrl, price, courseId } = req.body;
     const course = await courseModel.updateOne({ //updateOne function expects filters ki kaun si row ko change karna chahte hai hum
     // yaha par hum courseModel.updateOne ko bol rhe hai ki jaha par ye course id hai, waha par update kardo neeche wale elements..(title, description..)
         _id: courseId,
-        createrId: adminId // it is important that the only the orignal person who created the course should only be able to edit it..that is createrId is important
+        creatorId: adminId // it is important that the only the orignal person who created the course should only be able to edit it..that is createrId is important
     },{
         title : title,
         description : description,
-        price : price,
         imageUrl : imageUrl,
+        price : price
     })
 
     res.json({
-        msg : "Course created",
+        msg : "Course updated",
         courseId : course._id
     }) // to make changes in the  structure (put request)
 })
@@ -84,7 +84,7 @@ adminRouter.put("/course", adminMiddleware, async function (req, res) {
 adminRouter.get("/course/bulk", adminMiddleware, async function (req, res) { // to see all the  under one hood
     const adminId = req.userId
     const courses = await courseModel.find({
-        createrId: adminId
+        creatorId: adminId
     })
     res.json({ msg : "Course updated",
         courses})

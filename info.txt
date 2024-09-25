@@ -42,3 +42,7 @@ How do we do that?
 install npm i dotenv
 put require("dotenv").config() at the top of index file
 add all the keys to .env file and replace the keys with process.env.variablename
+
+
+flyingbeast - 66f41fe747da033c6e7f1255
+dhruvrathee - 66f4189ea22eeee9860d96cf  

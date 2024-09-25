@@ -1,5 +1,4 @@
 require("dotenv").config(); // this needs to be put at the top of the file.
-console.log(process.env.MONGO_URL)
 const express = require("express")
 const mongoose = require("mongoose")
 // const { createUserRoutes } = require("./routes/user");
@@ -39,7 +38,7 @@ app.use("/api/v1/admin", adminRouter);
 async function main(){
 
     await mongoose.connect(process.env.MONGO_URL) // this is what we write to replace the keys/passwords
-    app.listen(port, () => {console.log(`Server running at PORT: ${port}`)})
+    app.listen(3000);
     console.log("Listening on port 3000")
 }
 
