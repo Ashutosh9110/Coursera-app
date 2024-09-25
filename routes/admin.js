@@ -61,12 +61,33 @@ adminRouter.post("/course", adminMiddleware, async function (req, res) { // the 
 })
 // we are putting just / here so that any time any request comes to /api/v1/course/.."/" swit will handle it
 
-adminRouter.put("/", function (req, res) { // to make changes in the  structure (put request)
-    res.json({ msg : "signup endpoint"})
+adminRouter.put("/course", adminMiddleware, async function (req, res) {
+    const adminId = req.userId
+    const { titel, description, price, imageUrl, courseId } = req.body;
+    const course = await courseModel.updateOne({ //updateOne function expects filters ki kaun si row ko change karna chahte hai hum
+    // yaha par hum courseModel.updateOne ko bol rhe hai ki jaha par ye course id hai, waha par update kardo neeche wale elements..(title, description..)
+        _id: courseId,
+        createrId: adminId // it is important that the only the orignal person who created the course should only be able to edit it..that is createrId is important
+    },{
+        title : title,
+        description : description,
+        price : price,
+        imageUrl : imageUrl,
+    })
+
+    res.json({
+        msg : "Course created",
+        courseId : course._id
+    }) // to make changes in the  structure (put request)
 })
 
-adminRouter.get("/bulk", function (req, res) { // to see all the  under one hood
-    res.json({ msg : "signup endpoint"})
+adminRouter.get("/course/bulk", adminMiddleware, async function (req, res) { // to see all the  under one hood
+    const adminId = req.userId
+    const courses = await courseModel.find({
+        createrId: adminId
+    })
+    res.json({ msg : "Course updated",
+        courses})
 })
 
 module.exports = {
