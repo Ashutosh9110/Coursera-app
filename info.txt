@@ -1,3 +1,5 @@
+EP = End Points
+
 
 npm inti -y || To initialize package.json
 index.js: Entry point file

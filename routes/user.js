@@ -7,9 +7,10 @@
  // can be written either way
 
 const { Router } =  require("express");
-const { userModel } = require("../db");
+const { userModel, purchaseModel, courseModel } = require("../db");
 const jwt = require("jsonwebtoken");
 const { JWT_USER_PASSWORD } = require("../config");
+const { userMiddleware } = require("../middleware/user");
 
 const userRouter = Router();
 
@@ -57,8 +58,24 @@ const userRouter = Router();
 
 
 
-    userRouter.get("/purchases", function(res, res) {
-        res.json({ msg : "This is it" })
+    userRouter.get("/purchases", userMiddleware, async function(req, res) { // in this EP, we will learn about relationships in mongo
+        const userId = req.userId;
+
+        const purchases = await purchaseModel.find({ // find all the courses for this userId
+            userId,
+        })
+
+        let purchasedCourseIds = []; 
+        for(let i=0;i<purchases.length;i++){ // pushing all the courseId one by one into purchasedCourseIds..
+            purchasedCourseIds.push(purchases[i].courseId)
+        }
+
+        const coursesData = await courseModel.find({ // how did we get the course data: courseModel.find will find us a course jiski _id is in purchases.map array
+            _id : { $in : purchasedCourseIds }
+        })
+
+
+        res.json({ purchases, coursesData })
     })
 
 

@@ -67,7 +67,7 @@ adminRouter.put("/course", adminMiddleware, async function (req, res) {
     const course = await courseModel.updateOne({ //updateOne function expects filters ki kaun si row ko change karna chahte hai hum
     // yaha par hum courseModel.updateOne ko bol rhe hai ki jaha par ye course id hai, waha par update kardo neeche wale elements..(title, description..)
         _id: courseId,
-        creatorId: adminId // it is important that the only the orignal person who created the course should only be able to edit it..that is createrId is important
+        creatorId: adminId // it is important that the only the orignal person who created the course should only be able to edit it..that is creatorId is important
     },{
         title : title,
         description : description,

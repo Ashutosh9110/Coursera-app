@@ -26,7 +26,7 @@ const courseSchema = new Schema({
     creatorId : ObjectId
 });
 
-const purchaseSchema = new Schema({
+const purchaseSchema = new Schema({ // This purchases schema stores a mapping..mapping a user to the course he bought
     userId : ObjectId, // the userId refers to the userSchema
     courseId : ObjectId, // the course id refers to the courseSchema
 
